@@ -1,0 +1,26 @@
+#!/bin/bash
+# requires https://www.imagemagick.org
+# MacOS sample usage on all files marked with tag "Red":
+# tag -f Red DIR | tr '\n' '\0' | xargs -0 -n1 watermark
+
+YEAR=$(date +%Y)
+TEXT="© $YEAR   \nYOUR NAME   \nEMAIL@DOMAIN   \nWEBSITE   \n"
+
+INFILE=$1
+SUFFIX=${INFILE#*.}
+if [ "$2" ]; then
+  OUTFILE=$2
+else
+  OUTFILE=${INFILE%.*}_wm.$SUFFIX
+fi
+if [ "$3" ]; then
+  SIZE=$3
+else
+  SIZE=50
+fi
+TMPFILE=/tmp/watermark.$$.png
+convert -size 400x300 xc:none -font Helvetica -pointsize $SIZE -gravity SouthEast \
+  -fill white -stroke black -strokewidth 1 \
+  -annotate 0x0+0+0 "$TEXT" $TMPFILE \
+&& composite -dissolve 30% -gravity SouthEast "$TMPFILE" "$INFILE" "$OUTFILE" \
+&& rm $TMPFILE
