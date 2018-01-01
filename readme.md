@@ -1,9 +1,24 @@
 # picasaweb2smugmug.py
 
 A tool for copying photos from a Google PicasaWeb account to SmugMug.
-It transfers the raw images in full resolution, if they have been originally uploaded to PicasasWeb.
-Attributes like image title and image description text are also copied.
+
+The following information is transferred:
+* images in full resolution, if they have been originally uploaded to PicasasWeb
+* image filename
+* image title
+* image description text
+* order of photos within an album
+* album names
+* album privacy setting (private, unlisted, public)
+
+The followig is lost during the transfer:
+* the selection of a album title photo
+
+If a folder name is given as option, that folder will be set to unlisted so you can preview the created albums before moving them to the root folder or changing the pricay setting of that new folder.
+
 An option exists to store all photos in a local directory, including the image description as .txt file.
+
+Optinally, an external script can be applied on each image to apply some processing like adding a watermark. See included sample script ```watermark```.
 
 By default it excludes the following automatically created Google+ albums:
 * Auto Backups
