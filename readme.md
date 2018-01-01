@@ -35,6 +35,8 @@ One to allow access to your Picasaweb account
 and one to allow access to your SmugMug account.
 Only if the --credfile parameter is used, the created API keys are stored on your local system to re-use them on the next start of the tool.
 
+I wrote the tool for migrating my travel photo gallery to http://photos.areo.info of about 40 albums and some hundred photos.
+
 Requires:
 * Python 2.7
 * some standard python libraries
