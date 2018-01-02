@@ -3,7 +3,7 @@
 A tool for copying photos from a Google PicasaWeb account to SmugMug.
 
 The following information is transferred:
-* images in full resolution, if they have been originally uploaded to PicasasWeb
+* images in full resolution including EXIF tags and original geolocation
 * image filename
 * image title
 * image description text
@@ -11,14 +11,15 @@ The following information is transferred:
 * album names
 * album privacy setting (private, unlisted, public)
 
-The followig is lost during the transfer:
+The following is lost during the transfer:
 * the selection of a album title photo
+* modifications to the geolocation which have been added on the Google album
 
 If a folder name is given as option, that folder will be set to unlisted so you can preview the created albums before moving them to the root folder or changing the pricay setting of that new folder.
 
 An option exists to store all photos in a local directory, including the image description as .txt file.
 
-Optinally, an external script can be applied on each image to apply some processing like adding a watermark. See included sample script ```watermark```.
+Optionally, an external script can be applied on each image to apply some processing like adding a watermark. See included sample script ```watermark```.
 
 By default it excludes the following automatically created Google+ albums:
 * Auto Backups
@@ -33,9 +34,9 @@ The code is in part based on the following:
 After start, you will be asked to open two URLs in a web browser.
 One to allow access to your Picasaweb account
 and one to allow access to your SmugMug account.
-Only if the --credfile parameter is used, the created API keys are stored on your local system to re-use them on the next start of the tool.
+Only if the --credfile parameter is used, the created API keys are stored on your local system to reuse them on the next start of the tool.
 
-I wrote the tool for migrating my travel photo gallery to http://photos.areo.info of about 40 albums and some hundred photos.
+I wrote the tool for migrating my travel photo gallery to http://photos.areo.info of about 1000 photos in 40 albums.
 
 Requires:
 * Python 2.7
